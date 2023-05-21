@@ -41,6 +41,7 @@ executable LambdaMath-exe
   main-is: Main.hs
   other-modules:
       Home
+      Intro
       Paths_LambdaMath
   hs-source-dirs:
       app
