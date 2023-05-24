@@ -9,17 +9,15 @@ import qualified Home
 import qualified Intro
 import qualified NoPage
 import qualified Practice.Home
-import Network.Wai.Middleware.Static
 
 blaze :: H.Html -> ActionM ()
 blaze = html . T.renderHtml
 
 main :: IO ()
 main = scotty 3000 $ do
-    middleware static
-    get "/an" $ do
-        addHeader "content-type" "image/jpg"
-        file "./app/a.jpg"
+    get "/icon.svg" $ do
+        addHeader "Content-Type" "image/svg+xml"
+        file "./img/Anonymous-lambda.svg"
     get "/practice/" $ blaze Practice.Home.render
     get "/practice/:path" $ do
         blaze $ NoPage.render "Practice has pages."

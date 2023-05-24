@@ -13,7 +13,7 @@ headAndBar pageTitle pageContent = html ! class_ "holiday-css-dark" $ do
       script ! src "https://polyfill.io/v3/polyfill.min.js?features=es6" $ ""
       script ! A.id "MathJax-script" ! async "true" ! src "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" $ ""
       link ! rel "stylesheet" ! href "https://cdn.jsdelivr.net/npm/holiday.css@0.11.0"
-      link ! rel "icon" ! href "/Anonymous-lambda.svg"
+      link ! rel "icon" ! A.type_ "image/svg+xml" ! href "/icon.svg"
       H.title pageTitle
     body $ do
       nav $ ul $ do

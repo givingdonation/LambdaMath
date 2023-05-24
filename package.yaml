@@ -23,7 +23,6 @@ dependencies:
 - base >= 4.7 && < 5
 - scotty
 - blaze-html
-- wai-middleware-static
 
 ghc-options:
 - -Wall

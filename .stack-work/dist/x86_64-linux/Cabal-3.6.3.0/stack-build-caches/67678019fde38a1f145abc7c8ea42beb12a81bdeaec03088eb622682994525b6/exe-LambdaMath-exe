@@ -1,0 +1,26 @@
+/home/user/.ghcup/ghc/9.2.7/lib/ghc-9.2.7/include/ghcversion.h:
+  hash: d590b76d2d5f98f01894882dc106d920a101f52edb6a09b9a7f8dc701b075565
+/home/user/Documents/LambdaMath/.stack-work/dist/x86_64-linux/Cabal-3.6.3.0/build/LambdaMath-exe/autogen/Paths_LambdaMath.hs:
+  hash: c8c041ed6c29db28b794eb42f6a6265b3735c674456787bf4dd0910214311d59
+/home/user/Documents/LambdaMath/.stack-work/dist/x86_64-linux/Cabal-3.6.3.0/build/LambdaMath-exe/autogen/cabal_macros.h:
+  hash: b0806c8f5d900c6e5fe24e8a94089f33eab4015e13fccc56c2fd2451a1eba32a
+/home/user/Documents/LambdaMath/CHANGELOG.md:
+  hash: 95958904da5d58b26d4feff890a091c3c195f2e709840f1968c6d0a4558a896f
+/home/user/Documents/LambdaMath/LambdaMath.cabal:
+  hash: d0f82d9c504117efa90a7e41d19eb8e199d7d05012343ef59a0371eee00e8a9f
+/home/user/Documents/LambdaMath/README.md:
+  hash: 8c11b281f363cf7c4a320444a4bc7c618a498af7a2fe8eb90d2af5c405c6f380
+/home/user/Documents/LambdaMath/app/Home.hs:
+  hash: 39c3c8883219f780fa4cd05a9793f57917b078c63e7296c8c69663223ad7616f
+/home/user/Documents/LambdaMath/app/Intro.hs:
+  hash: bbdbcb229bd30db8939e6fa8da1054d087e27c371c573d416e3d228756647e30
+/home/user/Documents/LambdaMath/app/Main.hs:
+  hash: 8a050a0a01df6cb4b327b8683a5a114e9919f8e44fed7af77b1dd0579b035509
+/home/user/Documents/LambdaMath/app/NoPage.hs:
+  hash: e9d94ff7c29ae601c5f5f6b1d0f8c2ba41f447687386b1a8a8302627b54c789f
+/home/user/Documents/LambdaMath/app/Practice/Home.hs:
+  hash: df1becc15aaaf692526bc5268d6a0b7903fb6971ecce3606f72748b929e4f9e3
+/home/user/Documents/LambdaMath/package.yaml:
+  hash: 598917dce81e34528d136d9d6f4bf47155863071467bc69a31327d049412ef5a
+/usr/include/stdc-predef.h:
+  hash: 38bac01c137da3ec6623c5166d420cd0bdee18e1d6605921f138f74ef902f102
