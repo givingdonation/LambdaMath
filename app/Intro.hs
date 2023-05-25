@@ -9,6 +9,7 @@ import qualified Home (headAndBar)
 render :: Html
 render = Home.headAndBar "Intro - Learn: Lambda Math" $ do
     h1 "Introduction"
+    p ""
     h2 "Lambda Math"
     p "Lambda Math is a personal project "
     h2 "lambda calculus"
