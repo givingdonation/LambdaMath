@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -Wno-unused-imports #-}
 module Intro (render) where
 
 import Text.Blaze.Html5 as H
@@ -17,4 +16,4 @@ render = Home.headAndBar "Intro - Learn: Lambda Math" $ do
     h2 "lambda calculus origins"
     h2 "lambda calculus importance"
     h2 "navigating Lambda Math"
-    a "Practice Introduction"
+    a "Practice Introduction" ! href "/practice/introduction"

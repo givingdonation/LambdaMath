@@ -45,13 +45,16 @@ library
 executable LambdaMath-exe
   main-is: Main.hs
   other-modules:
+      Boole
       Defin
       Home
       Intro
       NoPage
+      Numbe
       Practice.Home
       Practice.Intro
       Practice.Login
+      Recur
       Paths_LambdaMath
   hs-source-dirs:
       app
