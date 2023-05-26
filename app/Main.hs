@@ -7,6 +7,7 @@ import Text.Blaze.Html.Renderer.Text ( renderHtml )
 import Web.Scotty as S
 import qualified Text.Blaze.Html5 as H
 import qualified Data.Text.Lazy as TL
+--import qualified Data.Text as T
 
 import qualified Practice.Home
 import qualified Practice.Intro
@@ -18,7 +19,7 @@ import qualified Boole
 import qualified Numbe
 import qualified Recur
 import qualified NoPage
---import qualified Data.Text as T
+
 
 blaze :: H.Html -> ActionM ()
 blaze = html . renderHtml
@@ -55,20 +56,17 @@ main = scotty 3000 $ do
     get "/practice/:path" $ blaze $ NoPage.render "Practice has pages."
 
     get "/" $ blaze Home.render
-    get "/introduction" $ blaze Intro.render
+    get "/introduction" $ blaze $ Intro.render ""
+    post "/introduction" $ do
+        answer <- param "answer"
+        if (answer :: TL.Text) == "a" then do
+            blaze $ Intro.render "Correct answer!"
+        else 
+            blaze $ Intro.render $ "Incorrect answer. This is the correct answer:" <> H.p "a"
     get "/definitions" $ blaze Defin.render
     get "/booleans" $ blaze Boole.render
     get "/numbers" $ blaze Numbe.render
     get "/recursion" $ blaze Recur.render
     get "/:path" $ blaze $ NoPage.render "Learn has pages."
-        {- --Make it so case doesnt matter for URLs
-        path <- param "path"
-        case map toLower path of
-            "introduction" -> redirect "/introduction"
-            "introduction" -> redirect "/definitions"
-            "introduction" -> redirect "/"
-            "introduction" -> redirect "/introduction"
-            "introduction" -> redirect "/introduction"
-            _              -> blaze $ NoPage.render "Learn has pages."-}
     notFound $ blaze $ NoPage.render "No pages/subpages."
 

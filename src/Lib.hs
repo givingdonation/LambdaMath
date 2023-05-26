@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-module Lib ( setCookie, getCookie, getCookies ) where
+module Lib ( setCookie, getCookie ) where
 
 import qualified Data.Text.Encoding as TS
 import qualified Data.Text as T
