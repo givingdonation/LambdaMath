@@ -20,7 +20,6 @@ import qualified Numbe
 import qualified Recur
 import qualified NoPage
 
-
 blaze :: H.Html -> ActionM ()
 blaze = html . renderHtml
 
@@ -39,7 +38,8 @@ main = scotty 3000 $ do
         file "./img/Anonymous-lambda.svg"
     
     get "/practice" $ loginCheck $ blaze Practice.Home.render
-    get "/practice/introduction" $ loginCheck $ blaze Practice.Intro.render
+    get "/practice/introduction" $ loginCheck $ blaze Practice.Intro.renderGet
+    post "/practice/introduction" $ loginCheck $ blaze Practice.Intro.renderPost
     post "/practice" $ do
         username <- param "username"
         password <- param "password"
@@ -60,13 +60,17 @@ main = scotty 3000 $ do
     post "/introduction" $ do
         answer <- param "answer"
         if (answer :: TL.Text) == "a" then do
-            blaze $ Intro.render "Correct answer!"
+            blaze $ Intro.render $ H.h3 "Correct answer!"
         else 
-            blaze $ Intro.render $ "Incorrect answer. This is the correct answer:" <> H.p "a"
+            blaze $ Intro.render $ do
+                H.h3 "Incorrect answer."
+                H.h3 "This is the correct answer:"
+                H.p "a"
     get "/definitions" $ blaze Defin.render
     get "/booleans" $ blaze Boole.render
     get "/numbers" $ blaze Numbe.render
     get "/recursion" $ blaze Recur.render
     get "/:path" $ blaze $ NoPage.render "Learn has pages."
+    
     notFound $ blaze $ NoPage.render "No pages/subpages."
 

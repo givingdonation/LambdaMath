@@ -30,7 +30,8 @@ render answerTruth = Home.headAndBar "Intro - Learn: Lambda Math" $ do
         H.form ! action "/introduction" ! method "POST" $ do
             H.label $ do
                 b "What is the first lowercase letter of the alphabet?"
-                input ! type_ "text" ! name "answer" ! value "Type answer here"
+            input ! type_ "text" ! name "answer" ! value "Type answer here"
+            br
             input ! type_ "submit" ! value "Submit"
-        h3 answerTruth
+        answerTruth
     a "Practice Introduction" ! href "/practice/introduction"
