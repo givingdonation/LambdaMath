@@ -9,8 +9,9 @@ import qualified Text.Blaze.Html5 as H
 import qualified Data.Text.Lazy as TL
 --import qualified Data.Text as T
 
+
 import qualified Practice.Home
-import qualified Practice.Intro
+import qualified Practice.Page
 import qualified Practice.Login
 import qualified Home
 import qualified Intro
@@ -19,6 +20,7 @@ import qualified Boole
 import qualified Numbe
 import qualified Recur
 import qualified NoPage
+import Practice.Page (Status(..))
 
 blaze :: H.Html -> ActionM ()
 blaze = html . renderHtml
@@ -28,8 +30,7 @@ loginCheck page = do
     cookies <- getCookie "id"
     if cookies /= Just "1" then 
         blaze $ Practice.Login.render True
-    else 
-        page
+    else page
 
 main :: IO ()
 main = scotty 3000 $ do
@@ -38,8 +39,15 @@ main = scotty 3000 $ do
         file "./img/Anonymous-lambda.svg"
     
     get "/practice" $ loginCheck $ blaze Practice.Home.render
-    get "/practice/introduction" $ loginCheck $ blaze Practice.Intro.renderGet
-    post "/practice/introduction" $ loginCheck $ blaze Practice.Intro.renderPost
+    get "/practice/introduction" $ loginCheck $ blaze $ Practice.Page.render $ Status {score = "0", answerAnal = undefined}
+    post "/practice/introduction" $ loginCheck $ do
+        answer <- param "answer"
+        if (answer :: TL.Text) == "a" then do
+            blaze $ Intro.render $ H.h3 "Correct answer!"
+        else blaze $ Practice.Page.render $ Status {score = "0", answerAnal = do
+                H.h3 "Incorrect answer."
+                H.h3 "This is the correct answer:"
+                H.p "a"}
     post "/practice" $ do
         username <- param "username"
         password <- param "password"
@@ -47,8 +55,7 @@ main = scotty 3000 $ do
             setCookie "username" username
             setCookie "id" "1"
             blaze Practice.Home.render
-        else 
-            blaze $ Practice.Login.render False
+        else blaze $ Practice.Login.render False
     get "/practice/logout" $ do
         setCookie "id" ""
         setCookie "username" ""
@@ -61,8 +68,7 @@ main = scotty 3000 $ do
         answer <- param "answer"
         if (answer :: TL.Text) == "a" then do
             blaze $ Intro.render $ H.h3 "Correct answer!"
-        else 
-            blaze $ Intro.render $ do
+        else blaze $ Intro.render $ do
                 H.h3 "Incorrect answer."
                 H.h3 "This is the correct answer:"
                 H.p "a"

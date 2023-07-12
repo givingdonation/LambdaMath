@@ -52,8 +52,8 @@ executable LambdaMath-exe
       NoPage
       Numbe
       Practice.Home
-      Practice.Intro
       Practice.Login
+      Practice.Page
       Recur
       Paths_LambdaMath
   hs-source-dirs:

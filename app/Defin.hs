@@ -8,7 +8,7 @@ import qualified Home (headAndBar)
 render :: Html
 render = Home.headAndBar "Defin - Learn: Lambda Math" $ do
     h1 "Definition of Lambda Calculus"
-    h2 "Functions"
+    h2 "Functions" ! A.id "1"
     p "Lambda calculus is ultimately about functions, in the purest sense. Despite the relationship of lambda calculus to programming, it may be better to think about of lambda calculus from the perspective of mathematical functions as well as from a traditional programming perspective."
     p "In mathematical notation, here is a function that squares a number:"
     "$$f(x)=x^2$$"
@@ -22,13 +22,13 @@ render = Home.headAndBar "Defin - Learn: Lambda Math" $ do
     "$$(x \\mapsto x^2)(7)$$"
     p "Anonymous functions, are functions that are not defined with a specific identifier. In other words, they simply don't have a name like \\(f\\). It is important to highlight how lambda calculus only uses these kinds of functions, since they are simpler."
     
-    h2 "Lambda Terms"
+    h2 "Lambda Terms" ! A.id "2"
     p ""
     h3 "Variables"
     h3 "Abstraction"
     h3 "Application"
-    h2 "Notation"
-    h2 "Reduction"
+    h2 "Notation" ! A.id "3"
+    h2 "Reduction" ! A.id "4"
     h3 "Currying"
     h3 "Example"
     p "try this out on your own, and then view the solution"
