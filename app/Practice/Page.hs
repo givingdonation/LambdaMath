@@ -8,6 +8,7 @@ import Text.Blaze.Html5.Attributes as A
 data Status = Status {score :: Html, answerAnal :: Html}
 -- where should persistent code go? in main
 -- make simple question analysis for 1 question.
+-- think about, how will the user go to the next question, how will the server track that and stop accidental answers and show attempts.
 render :: Status -> Html
 render status = Practice.Home.headAndBar "Intro - Practice: Lambda Math" $ do
     h1 "Practice"

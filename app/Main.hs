@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
---{-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE MultiWayIf #-}
 module Main (main) where
 
 import Lib
@@ -39,12 +39,16 @@ main = scotty 3000 $ do
         file "./img/Anonymous-lambda.svg"
     
     get "/practice" $ loginCheck $ blaze Practice.Home.render
-    get "/practice/introduction" $ loginCheck $ blaze $ Practice.Page.render $ Status {score = "0", answerAnal = undefined}
+    get "/practice/introduction" $ loginCheck $ blaze $ Practice.Page.render $ Status {score = "0", answerAnal = H.h3 ""}
     post "/practice/introduction" $ loginCheck $ do
         answer <- param "answer"
-        if (answer :: TL.Text) == "a" then do
-            blaze $ Intro.render $ H.h3 "Correct answer!"
-        else blaze $ Practice.Page.render $ Status {score = "0", answerAnal = do
+        let attempts = 3 :: Int
+        if | (answer :: TL.Text) == "a" ->
+             blaze $ Practice.Page.render $ Status {score = "1", answerAnal = H.h3 "Correct answer!"}
+           | attempts <= 3 -> blaze $ Practice.Page.render $ Status {score = "0", answerAnal = do
+                H.h3 "Incorrect answer."
+                H.h3 "Try again."}
+           | True -> blaze $ Practice.Page.render $ Status {score = "0", answerAnal = do
                 H.h3 "Incorrect answer."
                 H.h3 "This is the correct answer:"
                 H.p "a"}
