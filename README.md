@@ -29,3 +29,6 @@ For now, just give me credit and share your changes with others, please.
 * persistent stores Qs and user information for each section of LM, before you can duplicate Intro
 * Do learn pages
 * Do q and a anal for rest of LM learn/practice
+
+This project is the continuation of:
+https://gitlab.com/a8615/lambda-math
